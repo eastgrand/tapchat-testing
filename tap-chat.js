@@ -309,13 +309,13 @@ Trial.prototype.setReactToRed = function () {
         var instance = Flow.currentTrialInstance();
         var awaitOutcome = Helpers.sampleWithReplacement(Config.awaitOutcome);
         $('target-bubble').observe('click', function (e) {
-            if ((e.target).className === 'ball-red bubble') {
+            //if (e.target.className === 'ball-red bubble') {
                 instance.setReactToRed();
                 e.target.stopObserving('click');
                 self.renderOutcome(function () {
                     Flow.interTrialProceed();
                 });
-            }
+            //}
         });
     };
     exports.reset = function (callback) {
