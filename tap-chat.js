@@ -309,7 +309,7 @@ Trial.prototype.setReactToRed = function () {
         var instance = Flow.currentTrialInstance();
         var awaitOutcome = Helpers.sampleWithReplacement(Config.awaitOutcome);
         $('target-bubble').observe('click', function (e) {
-            if (e.target.style['background-color'] === 'red') {
+            if (e.target.className === 'ball-red bubble') {
                 instance.setReactToRed();
                 e.target.stopObserving('click');
                 self.renderOutcome(function () {
@@ -323,7 +323,7 @@ Trial.prototype.setReactToRed = function () {
         var outcome = instance.outcome;
         var targetSquare = $('target-bubble');
         window.setTimeout(function () {
-            targetSquare.style.backgroundColor = 'green';
+            targetSquare.className = 'ball bubble';
             $('ready').style.backgroundColor = 'blue';
         }, Helpers.sampleWithReplacement(Config.start));
         callback();
