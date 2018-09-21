@@ -272,14 +272,14 @@ Trial.prototype.setReactToRed = function () {
     exports.targetToGreen = function (t) {
         (function () {
             //$('target-square').style['background-color'] = 'green';
-            $('target-bubble').attr('class', 'ball bubble');
+            $('target-bubble').className = 'ball bubble';
         }).delay(t);
     };
     exports.targetToYellow = function (t) {
         //Helpers.logTime('targetToYellow');
         (function () {
             //$('target-square').style['background-color'] = 'yellow';
-            $('target-bubble').removeClass('ball bubble').addClass('ball-yellow bubble');
+            $('target-bubble').className = 'ball-yellow bubble';
             //Helpers.logTime('anon fn turning target to Yellow after delay');
         }).delay(t);
     };
@@ -291,7 +291,7 @@ Trial.prototype.setReactToRed = function () {
         (function () {
             instance.setTurnToRed();
             //target.style['background-color'] = 'red';
-            $('target').attr('class', 'ball-red bubble');
+            target.className = 'ball-red bubble';
             //Helpers.logTime('anon fn turning target to Red after delay');
         }).delay(t1 + t2);
     };
