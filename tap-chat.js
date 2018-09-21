@@ -271,23 +271,27 @@ Trial.prototype.setReactToRed = function () {
     };
     exports.targetToGreen = function (t) {
         (function () {
-            $('target-square').style['background-color'] = 'green';
+            //$('target-square').style['background-color'] = 'green';
+            $('target-bubble').attr('class', 'ball bubble');
         }).delay(t);
     };
     exports.targetToYellow = function (t) {
         //Helpers.logTime('targetToYellow');
         (function () {
-            $('target-square').style['background-color'] = 'yellow';
+            //$('target-square').style['background-color'] = 'yellow';
+            $('target-bubble').attr('class', 'ball-yellow bubble');
             //Helpers.logTime('anon fn turning target to Yellow after delay');
         }).delay(t);
     };
     exports.targetToRed = function (t1, t2) {
-        var target = $('target-square');
+        //var target = $('target-square');
+        var target = $('target-bubble');
         var instance = Flow.currentTrialInstance();
         //Helpers.logTime('targetToRed');
         (function () {
             instance.setTurnToRed();
-            target.style['background-color'] = 'red';
+            //target.style['background-color'] = 'red';
+            $('target').attr('class', 'ball-red bubble');
             //Helpers.logTime('anon fn turning target to Red after delay');
         }).delay(t1 + t2);
     };
@@ -304,7 +308,7 @@ Trial.prototype.setReactToRed = function () {
         var self = this;
         var instance = Flow.currentTrialInstance();
         var awaitOutcome = Helpers.sampleWithReplacement(Config.awaitOutcome);
-        $('target-square').observe('click', function (e) {
+        $('target-bubble').observe('click', function (e) {
             if (e.target.style['background-color'] === 'red') {
                 instance.setReactToRed();
                 e.target.stopObserving('click');
@@ -317,7 +321,7 @@ Trial.prototype.setReactToRed = function () {
     exports.reset = function (callback) {
         var instance = Flow.currentTrialInstance();
         var outcome = instance.outcome;
-        var targetSquare = $('target-square');
+        var targetSquare = $('target-bubble');
         window.setTimeout(function () {
             targetSquare.style.backgroundColor = 'green';
             $('ready').style.backgroundColor = 'blue';
@@ -328,7 +332,7 @@ Trial.prototype.setReactToRed = function () {
     exports.renderOutcome = function (callback) {
         var instance = Flow.currentTrialInstance();
         var outcome = instance.outcome;
-        var targetSquare = $('target-square');
+        var targetSquare = $('target-bubble');
         var ready = $('ready');
         var target = $('target');
         var modal = $('intertrial-modal');
