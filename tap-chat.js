@@ -308,7 +308,7 @@ Trial.prototype.setReactToRed = function () {
         var self = this;
         var instance = Flow.currentTrialInstance();
         var awaitOutcome = Helpers.sampleWithReplacement(Config.awaitOutcome);
-        $('target-bubble').observe('click', function (e) {
+        $('targetdiv').observe('click', function (e) {
             if (e.target.className === 'ball-red bubble') {
                 instance.setReactToRed();
                 e.target.stopObserving('click');
