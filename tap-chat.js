@@ -257,7 +257,7 @@ Trial.prototype.setReactToRed = function () {
     };
     exports.listenForReadiness = function (callback) {
         var ready = $('ready');
-        ready.style.backgroundColor = 'blue';
+        //ready.style.backgroundColor = 'blue';
         ready.observe('click', function (e) {
             e.target.stopObserving('click');
             callback();
@@ -279,7 +279,7 @@ Trial.prototype.setReactToRed = function () {
         //Helpers.logTime('targetToYellow');
         (function () {
             //$('target-square').style['background-color'] = 'yellow';
-            $('target-bubble').attr('class', 'ball-yellow bubble');
+            $('target-bubble').removeClass('ball bubble').addClass('ball-yellow bubble');
             //Helpers.logTime('anon fn turning target to Yellow after delay');
         }).delay(t);
     };
